@@ -1,6 +1,6 @@
 //
 //  IRURLCacheMock.h
-//  IRUtil
+//  IRNetworkingMock
 //
 //  Created by Ramesh on 2/21/15.
 //

@@ -17,9 +17,9 @@
 		E80739B11A99534E00AC7B5F /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80739B51A99534E00AC7B5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E80739B61A99534E00AC7B5F /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
-		E8DB3E4A1A995DBF00D555D5 /* IRURLCacheMock.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = IRURLCacheMock.podspec; sourceTree = "<group>"; };
-		E8DB3E4B1A995DBF00D555D5 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E8DB3E4C1A995DBF00D555D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E8EE754B1A9A9AAE006C2429 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E8EE754C1A9A9AAE006C2429 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E8EE75501A9A9D25006C2429 /* IRNetworkingMock.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = IRNetworkingMock.podspec; path = ../IRNetworkingMock.podspec; sourceTree = "<group>"; };
 		FDEB775D9246F59762A85315 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,9 +83,9 @@
 		E8DB3E4D1A995DC400D555D5 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				E8DB3E4A1A995DBF00D555D5 /* IRURLCacheMock.podspec */,
-				E8DB3E4B1A995DBF00D555D5 /* LICENSE */,
-				E8DB3E4C1A995DBF00D555D5 /* README.md */,
+				E8EE754C1A9A9AAE006C2429 /* README.md */,
+				E8EE754B1A9A9AAE006C2429 /* LICENSE */,
+				E8EE75501A9A9D25006C2429 /* IRNetworkingMock.podspec */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";

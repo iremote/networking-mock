@@ -1,14 +1,14 @@
 PODS:
-  - IRURLCacheMock (1.0.0)
+  - IRNetworkingMock (1.0.0)
 
 DEPENDENCIES:
-  - IRURLCacheMock (from `../`)
+  - IRNetworkingMock (from `../`)
 
 EXTERNAL SOURCES:
-  IRURLCacheMock:
+  IRNetworkingMock:
     :path: ../
 
 SPEC CHECKSUMS:
-  IRURLCacheMock: 90b9607dc88946f215b1aef8aadcffb898d7c8e7
+  IRNetworkingMock: 08d6a028ffcbe132dbbbc3f5d4e56caa7a81e207
 
 COCOAPODS: 0.35.0

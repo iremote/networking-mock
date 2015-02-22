@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
 
-    s.name         = "IRURLCacheMock"
+    s.name         = "IRNetworkingMock"
     s.version      = "1.0.0"
-    s.summary      = "NSURLCache Mock."
+    s.summary      = "Networking Mock."
 
     s.description  = <<-DESC
-                        NSURLCache Mock framework for Unit testing.
+                        Networking Mock framework for Unit testing.
                     DESC
 
     s.homepage     = "http://www.iremote.net"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
     s.author       = { "Ramesh" => "rdoddi@iremote.net" }
 
-    s.source       = { :git => "https://github.com/iremote/url-cache-mock.git", :tag => s.version.to_s }
+    s.source       = { :git => "https://github.com/iremote/networking-mock.git", :tag => s.version.to_s }
 
     s.ios.deployment_target = '7.0'
 
