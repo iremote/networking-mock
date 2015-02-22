@@ -1,0 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Tests', :exclusive => true do
+   pod "IRURLCacheMock", :path => "../"
+end

@@ -1,0 +1,14 @@
+PODS:
+  - IRURLCacheMock (1.0.0)
+
+DEPENDENCIES:
+  - IRURLCacheMock (from `../`)
+
+EXTERNAL SOURCES:
+  IRURLCacheMock:
+    :path: ../
+
+SPEC CHECKSUMS:
+  IRURLCacheMock: 90b9607dc88946f215b1aef8aadcffb898d7c8e7
+
+COCOAPODS: 0.35.0
