@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
     s.name         = "IRURLCacheMock"
     s.version      = "1.0.0"
-    s.summary      = "NSURLCache Mock framework for Unit testing."
+    s.summary      = "NSURLCache Mock."
 
     s.description  = <<-DESC
                         NSURLCache Mock framework for Unit testing.
