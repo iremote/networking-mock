@@ -10,7 +10,7 @@
 
 @interface IRURLCacheMock ()
 @property (nonatomic, strong) NSMutableDictionary *mappings;
-@property (nonatomic, strong) NSMutableDictionary *cachedResponses;
+@property (nonatomic, strong) NSCache *cachedResponses;
 @end
 
 @implementation IRURLCacheMock
@@ -21,17 +21,18 @@
     self = [super init];
     if (self) {
         _mappings = [[NSMutableDictionary alloc] init];
-        _cachedResponses = [[NSMutableDictionary alloc] init];
+        _cachedResponses = [[NSCache alloc] init];
     }
     return self;
 }
 
-- (void)setSubstitutionFile:(NSString *)filename forOriginalPath:(NSString *)originalRESTFullURL {
-    [self.mappings setValue:filename forKey:originalRESTFullURL];
+- (void)given:(NSString *)HTTPMethod URLString:(NSString *)URLString respondWithFileContent:(NSString *)filename {
+    [self.mappings setObject:filename forKey:[IRURLCacheMock normalizedKeyForHTTPMethod:HTTPMethod andURLString:URLString]];
 }
 
-- (void)removeSubstitutionForOriginalPath:(NSString *)originalRESTFullURL {
-    [self.mappings removeObjectForKey:originalRESTFullURL];
+- (void)clearAllMappings {
+    [self.mappings removeAllObjects];
+    [self.cachedResponses removeAllObjects];
 }
 
 #pragma mark - Override methods
@@ -42,15 +43,15 @@
     // Get RESTFull URI path fromoriginal request
     //
     
-    NSString *pathString = [[request URL] absoluteString];
     // trim any attributes from path (like ?timestamp=13131)
-    pathString = [[pathString componentsSeparatedByString:@"?"] firstObject];
+    NSString *URLString = [[[[request URL] absoluteString] componentsSeparatedByString:@"?"] firstObject];
+    NSString *requestKey = [IRURLCacheMock normalizedKeyForHTTPMethod:request.HTTPMethod andURLString:URLString];
     
     //
     // See if substitution file exists for given path
     //
     
-    NSString *substitutionFilename = [self.mappings objectForKey:pathString];
+    NSString *substitutionFilename = [self.mappings objectForKey:requestKey];
     if (nil == substitutionFilename) {
         // Return the default cache as there is no mapping set for given path
         return [super cachedResponseForRequest:request];
@@ -60,7 +61,7 @@
     // Check if we have already created the cached entry that we can return
     //
     
-    NSCachedURLResponse *cachedResponse = [self.cachedResponses objectForKey:pathString];
+    NSCachedURLResponse *cachedResponse = [self.cachedResponses objectForKey:requestKey];
     if (cachedResponse) {
         return cachedResponse;
     }
@@ -85,7 +86,7 @@
     // Add it to cached responses (for future use)
     //
     
-    [self.cachedResponses setObject:cachedResponse forKeyedSubscript:pathString];
+    [self.cachedResponses setObject:cachedResponse forKey:requestKey];
     
     //
     // Return cached response
@@ -94,10 +95,10 @@
     return cachedResponse;
 }
 
-- (void)clearAllMappings {
-    
-    [self.mappings removeAllObjects];
-    [self.cachedResponses removeAllObjects];
+#pragma mark - Private methods
+
++ (NSString *)normalizedKeyForHTTPMethod:(NSString *)HTTPMethod andURLString:(NSString *)URLString {
+    return [NSString stringWithFormat:@"%@ %@", HTTPMethod, URLString];
 }
 
 @end

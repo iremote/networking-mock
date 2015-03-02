@@ -24,12 +24,9 @@
 
 @interface IRURLCacheMock : NSURLCache
 
-// Sets substitution for given original path by loading contents of file.
+// Given HTTP request (Method & URL) respond with content of given file.
 // File is located using current class bundle.
-- (void)setSubstitutionFile:(NSString *)filename forOriginalPath:(NSString *)originalRESTFullURL;
-
-// Removes the substitution entry for given original path.
-- (void)removeSubstitutionForOriginalPath:(NSString *)originalPath;
+- (void)given:(NSString *)HTTPMethod URLString:(NSString *)URLString respondWithFileContent:(NSString *)filename;
 
 // Removes all the mappings and cached responses.
 - (void)clearAllMappings;
