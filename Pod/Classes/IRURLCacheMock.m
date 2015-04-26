@@ -33,6 +33,7 @@
 - (void)clearAllMappings {
     [self.mappings removeAllObjects];
     [self.cachedResponses removeAllObjects];
+    [self removeAllCachedResponses];
 }
 
 #pragma mark - Override methods
@@ -46,6 +47,10 @@
     // trim any attributes from path (like ?timestamp=13131)
     NSString *URLString = [[[[request URL] absoluteString] componentsSeparatedByString:@"?"] firstObject];
     NSString *requestKey = [IRURLCacheMock normalizedKeyForHTTPMethod:request.HTTPMethod andURLString:URLString];
+    
+    if (![@"GET" isEqualToString:request.HTTPMethod]) {
+        NSLog(@"[%@] %@ %@", NSStringFromClass([self class]), requestKey, request.HTTPBody);
+    }
     
     //
     // See if substitution file exists for given path
@@ -75,6 +80,8 @@
                                           ofType:[substitutionFilename pathExtension]];
     
     NSData *data = [NSData dataWithContentsOfFile:filePath];
+    
+    NSAssert(filePath, @"Cannot find filePath for resource/%@", substitutionFilename);
     
     NSURLResponse *response = [[NSURLResponse alloc] initWithURL:request.URL
                                                         MIMEType:@"application/json"
