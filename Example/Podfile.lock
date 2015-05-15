@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  IRNetworkingMock: 08d6a028ffcbe132dbbbc3f5d4e56caa7a81e207
+  IRNetworkingMock: beaa8f6178b5f8853be8375c76a3d4148a54af2f
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3
